@@ -1,7 +1,6 @@
 # Create Docker container user to build 0install generic binaries.
 # We use a very old Ubuntu to maximise compatibility.
 
-# Or 32-bit:
 FROM talex5/lucid32:orig
 ENTRYPOINT ["linux32"]
 ADD sources.list /etc/apt/sources.list

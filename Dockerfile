@@ -25,7 +25,7 @@ ENV HOME /home/build
 RUN mkdir /home/build/bin
 ENV PATH /home/build/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 RUN 0install add opam --cpu "$CPU" http://tools.ocaml.org/opam.xml
-RUN linux32 opam init --comp=4.01.0
+RUN linux32 opam init --comp=4.03.0
 RUN linux32 opam install yojson xmlm ounit react lwt extlib ocurl obus lablgtk sha
 RUN 0install add 0release --cpu "$CPU" http://0install.net/2007/interfaces/0release.xml
 

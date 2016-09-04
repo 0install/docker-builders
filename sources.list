@@ -1,2 +1,3 @@
-deb http://archive.ubuntu.com/ubuntu/ lucid main restricted universe
-deb-src http://archive.ubuntu.com/ubuntu/ lucid main restricted universe
+
+deb http://old-releases.ubuntu.com/ubuntu/ lucid main restricted universe
+deb-src http://old-releases.ubuntu.com/ubuntu/ lucid main restricted universe

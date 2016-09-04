@@ -17,7 +17,7 @@ ENV HOME /root
 ADD trustdb.xml /root/.config/0install.net/injector/trustdb.xml
 RUN 0launch http://0install.net/2007/interfaces/ZeroInstall.xml --main=/install.sh --cpu "$CPU" http://0install.net/tools/0install.xml local
 RUN apt-get remove -y zeroinstall-injector
-RUN apt-get install -y m4 unzip
+RUN apt-get install -y m4 unzip python-gobject
 
 # Install opam, OCaml and 0install's dependencies
 USER build

@@ -1,7 +1,8 @@
 # Create Docker container user to build 0install generic binaries.
 # We use a very old Ubuntu to maximise compatibility.
 
-FROM ubuntu:10.04
+# (can't use 10.04 any more, due to "vsyscall attempted with vsyscall=none" when running bash)
+FROM ubuntu:12.04
 ENV CPU x86_64
 
 RUN apt-get update
@@ -22,8 +23,8 @@ ENV HOME /home/build
 RUN mkdir /home/build/bin
 ENV PATH /home/build/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 RUN 0install add opam --cpu "$CPU" http://tools.ocaml.org/opam.xml
-RUN opam init --comp=4.03.0
-RUN opam install yojson xmlm ounit react lwt extlib ocurl obus lablgtk sha
+RUN opam init --comp=4.03.0 --use-internal-solver
+RUN opam install --use-internal-solver yojson xmlm ounit react lwt extlib ocurl obus lablgtk sha
 RUN 0install add 0release --cpu "$CPU" http://0install.net/2007/interfaces/0release.xml
 
 WORKDIR /mnt

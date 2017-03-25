@@ -11,9 +11,9 @@ RUN apt-get install -y curl
 RUN useradd -m -u 1000 build
 
 ENV HOME /root
-# Bootstrap a modern 0install from 10.04's ancient copy, via an intermediate version :-)
+# Bootstrap a modern 0install from 12.04's ancient copy :-)
 ADD trustdb.xml /root/.config/0install.net/injector/trustdb.xml
-RUN 0launch http://0install.net/2007/interfaces/ZeroInstall.xml --main=/install.sh --cpu "$CPU" http://0install.net/tools/0install.xml local
+RUN 0launch --main=/install.sh --cpu "$CPU" http://0install.net/tools/0install.xml local
 RUN apt-get remove -y zeroinstall-injector
 RUN apt-get install -y m4 unzip python-gobject
 

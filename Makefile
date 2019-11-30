@@ -1,2 +1,5 @@
-u64:
-	docker build -t u14build64 -f Dockerfile64 .
+amd64:
+	docker build -t zi-build -f Dockerfile .
+
+arm32:
+	env DOCKER_HOST=ssh://pi@raspberrypi docker build -t zi-build -f Dockerfile .

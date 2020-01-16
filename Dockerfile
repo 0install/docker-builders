@@ -14,4 +14,9 @@ RUN 0install-linux-x86_64-2.14.1/install.sh local
 RUN 0install add 0release --cpu "$CPU" http://0install.net/2007/interfaces/0release.xml \
 		--version-for http://0install.net/2006/interfaces/0compile.xml 1.5..
 
+# The static build container's Python is too old to understand the https
+# certificates of apps.0install.net, so use the OCaml version to download the
+# dependencies now.
+RUN 0install download --source http://0install.net/tools/0install.xml
+
 WORKDIR /mnt
